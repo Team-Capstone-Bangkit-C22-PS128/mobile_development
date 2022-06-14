@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".ui.auth.LoginActivity">
+    tools:context=".activity.auth.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_marginTop="60dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -18,19 +18,14 @@
         app:srcCompat="@drawable/logo" />
 
     <TextView
-        android:id="@+id/tv_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/poppins"
+        android:id="@+id/tv_welcome"
+        style="@style/heading"
+        android:layout_marginTop="18dp"
         android:gravity="center_horizontal|top"
         android:text="@string/heading_login"
-        android:textAppearance="@style/heading"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
-
 
     <TextView
         android:id="@+id/heading2"
@@ -43,10 +38,10 @@
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_email"
+        android:id="@+id/ti_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
@@ -59,27 +54,30 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading2">
 
-        <com.fauzancode.capstoneapp.view.CustomEmailEditText
+        <com.company.capstoneapp.customview.CustomEmailEditText
+            android:id="@+id/et_email"
             style="@style/style_input_text"
-            android:background="@drawable/custom_edit_text" />
+            android:background="@drawable/custom_edit_text"
+            />
     </com.google.android.material.textfield.TextInputLayout>
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/et_password"
+        android:id="@+id/ti_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="25dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
+        app:passwordToggleEnabled="true"
         android:hint="@string/password"
         app:boxStrokeWidth="0dp"
         app:boxStrokeWidthFocused="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_email">
-
-        <com.fauzancode.capstoneapp.view.CustomPassEditText
+        app:layout_constraintTop_toBottomOf="@+id/ti_email">
+        <com.company.capstoneapp.customview.CustomPassEditText
+            android:id="@+id/et_password"
             style="@style/style_input_text"
             android:background="@drawable/custom_edit_text" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -88,13 +86,13 @@
         android:id="@+id/btn_signin"
         style="@style/style_btn_primary"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="25dp"
         android:text="@string/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_password" />
+        app:layout_constraintTop_toBottomOf="@+id/ti_password" />
 
     <TextView
         android:id="@+id/tv_signup"
@@ -107,16 +105,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_signin" />
 
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/signInButton"
-        android:layout_width="match_parent"
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_signup" />
-
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Capstone App</string>
+    <string name="app_name">Snackiest</string>
     <string name="mbadok">MBADOK</string>
     <string name="login">Masuk</string>
     <string name="daftar">Registrasi</string>
@@ -13,7 +13,38 @@
     <string name="heading_register">Registrasi Akun</string>
     <string name="heading2_register">Mohon mengisi form dengan sesuai</string>
     <string name="address">Samarinda, Kalimantan Timur</string>
-    <string name="greetings">Halo, Yuda</string>
+    <string name="greetings">Halo, Fauzan</string>
     <string name="subheading1_home">Kuliner disekitar anda</string>
     <string name="subheading2_home">Rekomendasi</string>
+    <string name="image">Image</string>
+    <string name="star">Star</string>
+    <string name="logo_halal">Logo Halal</string>
+    <string name="short_lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="long_lorem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. \n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</string>
+    <string name="lihat_di_sekitar">Lihat Di Sekitar</string>
+    <string name="button_like">Button Like</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="simpan">Simpan</string>
+    <string name="API_KEY">AIzaSyDxNLvpSXWVnX-YmXdA4rIGfLbI_4mGB6Q</string>
+    <string name="change_profile">Ubah Profil</string>
+    <string name="change_password">Ubah Password</string>
+    <string name="help">Bantuan</string>
+    <string name="about_us">Tentang Kami</string>
+    <string name="save">Simpan</string>
+    <string name="old_password">Password Lama</string>
+    <string name="verify_newpassword">Konfirmasi Password Baru</string>
+    <string name="new_password">Password Baru</string>
+    <string name="profile">Profile</string>
+    <string name="home">Home</string>
+    <string name="scan">Pindai</string>
+    <string name="tv_welcome">Welcome,\n%1$s</string>
+    <string name="skip">Lewati</string>
+    <string name="save_and_continue">Simpan dan Lanjutkan</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="profil">Profil</string>
+    <string name="keluar">Keluar</string>
+    <string name="favorit">Kuliner Favorit</string>
+    <string name="duration">Duration: %1$s</string>
+    <string name="distance">(%1$s)</string>
+    <string name="favorite_empty">Belum ada kuliner favorit</string>
 </resources>

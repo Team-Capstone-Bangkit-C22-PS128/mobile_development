@@ -1,20 +1,20 @@
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".ui.HomeActivity">
+    android:background="@color/white">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/circleImageView2"
+        android:id="@+id/ivAvatar"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="30dp"
+        android:src="@drawable/profile_pic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_username"
@@ -28,20 +28,38 @@
         android:textAppearance="@style/heading"
         android:textSize="16sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/circleImageView2"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toEndOf="@+id/ivAvatar"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/address"
+        android:id="@+id/tv_address"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins"
         android:gravity="center_horizontal|top"
         android:text="@string/address"
         android:textAppearance="@style/heading"
+        android:maxLines="1"
+        android:ellipsize="end"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@+id/tv_username"
         app:layout_constraintTop_toBottomOf="@+id/tv_username" />
+
+    <ImageButton
+        android:id="@+id/btn_maps"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="25dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_maps"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_address"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_subheader1"
@@ -56,19 +74,19 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/address" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_address" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/rv_culinary_around"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_subheader1" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_subheader1"
+        tools:listitem="@layout/item_culinary_around"/>
 
     <TextView
         android:id="@+id/tv_subheader2"
@@ -83,24 +101,31 @@
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+        app:layout_constraintTop_toBottomOf="@+id/rv_culinary_around" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_recommendation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="25dp"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/navbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_subheader2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_subheader2"
+        app:layout_constraintVertical_bias="0.0"
+        tools:listitem="@layout/item_culinary_recommendation"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navbar"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_gravity="bottom"
         android:background="@color/cream"
-        app:itemIconSize="40dp"
+        app:itemIconSize="25dp"
+        app:itemIconTint="@color/white"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +137,7 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_gravity="center"
-        android:src="@drawable/ic_icon_camera"
+        android:src="@drawable/ic_scan"
         app:backgroundTint="@color/cream"
         app:elevation="8dp"
         app:fabCustomSize="100dp"

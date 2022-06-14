@@ -1,9 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.DetailActivity">
+    android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:id="@+id/item_image"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="fitXY"
+        android:contentDescription="@string/image"
+        tools:src="@drawable/food_dummy"/>
+
+    <TextView
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="24dp"
+        android:gravity="start"
+        app:drawableStartCompat="@drawable/ic_arrow_back_ios_yellow_24" />
+
+    <LinearLayout
+        android:id="@+id/detail_body"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="280dp"
+        android:background="@drawable/custom_body_detail_screen">
+
+        <RelativeLayout
+            android:id="@+id/detail_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:hint="Nama Kuliner"
+                android:textColor="@color/cardview_dark_background"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/ic_star_1"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_below="@id/item_name"
+                android:contentDescription="@string/star"
+                android:src="@drawable/ic_star_yellow" />
+
+            <ImageView
+                android:id="@+id/ic_star_2"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_below="@id/item_name"
+                android:layout_toEndOf="@id/ic_star_1"
+                android:contentDescription="@string/star"
+                android:src="@drawable/ic_star_yellow" />
+
+            <ImageView
+                android:id="@+id/ic_star_3"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_below="@id/item_name"
+                android:layout_toEndOf="@id/ic_star_2"
+                android:contentDescription="@string/star"
+                android:src="@drawable/ic_star_yellow" />
+
+            <ImageView
+                android:id="@+id/ic_star_4"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_below="@id/item_name"
+                android:layout_toEndOf="@id/ic_star_3"
+                android:contentDescription="@string/star"
+                android:src="@drawable/ic_star_yellow" />
+
+            <ImageView
+                android:id="@+id/ic_star_5"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_below="@id/item_name"
+                android:layout_toEndOf="@id/ic_star_4"
+                android:contentDescription="@string/star"
+                android:src="@drawable/ic_star_yellow" />
+
+            <TextView
+                android:id="@+id/item_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_name"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@id/ic_star_5"
+                android:hint="4.5"
+                android:textSize="12sp" />
+
+            <ImageView
+                android:id="@+id/item_halal"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="1dp"
+                android:contentDescription="@string/logo_halal"
+                android:src="@drawable/ic_halal" />
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/body_item_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="16dp"
+            android:paddingBottom="60dp"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/item_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Deskripsi"/>
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/detail_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:paddingHorizontal="16dp"
+        android:paddingBottom="16dp"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/btn_maps"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="@string/lihat_di_sekitar"
+            android:background="@drawable/border_radius_8"/>
+
+        <ImageButton
+            android:id="@+id/btn_like"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:contentDescription="@string/button_like"
+            android:background="@drawable/border_radius_8"
+            android:src="@drawable/ic_favorite_uncheck"
+            android:backgroundTint="#D9D4D4"/>
+
+    </LinearLayout>
+
+
+</FrameLayout>
