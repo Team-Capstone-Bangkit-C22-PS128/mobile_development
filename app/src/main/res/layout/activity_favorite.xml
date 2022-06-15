@@ -8,9 +8,7 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@color/cream"
+        style="@style/style_toolbar"
         app:theme="@style/ThemeOverlay.AppCompat"
         app:title="Favorit"
         app:titleTextColor="@color/white"

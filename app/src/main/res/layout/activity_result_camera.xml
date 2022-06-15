@@ -6,34 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".activity.camera.ResultCameraActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/cream"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        style="@style/style_toolbar"
+        app:theme="@style/ThemeOverlay.AppCompat"
+        app:title="@string/scan"
+        app:titleTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:id="@+id/iv_back"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginVertical="18dp"
-            app:srcCompat="@drawable/ic_arrow_back_ios_48" />
-
-        <TextView
-            android:id="@+id/tv_setting"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="12dp"
-            android:layout_marginStart="16dp"
-            android:text="@string/scan"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="@color/white" />
-    </LinearLayout>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/iv_previewImage"
@@ -43,7 +24,7 @@
         app:layout_constraintBottom_toTopOf="@+id/tv_foodName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
         app:srcCompat="@drawable/food_dummy_3" />
 
     <TextView
@@ -52,7 +33,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="25dp"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/btn_scan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

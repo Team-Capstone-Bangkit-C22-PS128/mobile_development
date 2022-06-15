@@ -120,23 +120,20 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/navbar"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_gravity="bottom"
-        android:background="@color/cream"
         app:itemIconSize="25dp"
         app:itemIconTint="@color/white"
         app:labelVisibilityMode="unlabeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        style="@style/style_navbar" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
+        android:forceDarkAllowed="false"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_gravity="center"
         android:src="@drawable/ic_scan"
         app:backgroundTint="@color/cream"
         app:elevation="8dp"

@@ -2,7 +2,6 @@ package com.company.capstoneapp
 
 import com.company.capstoneapp.dataclass.DataUser
 import com.company.capstoneapp.dataclass.DetectionResponse
-import com.company.capstoneapp.dataclass.DirectionResponse
 import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
@@ -50,13 +49,7 @@ interface ApiService {
     @Multipart
     @POST("predict")
     fun uploadImage(
-        @Part file: MultipartBody.Part
+        @Part file: MultipartBody.Part,
+        @Part idToken: MultipartBody.Part
     ): Call<DetectionResponse>
-
-    @GET("json")
-    fun getDirection(
-        @Query("origin") origin: String,
-        @Query("destination") destination: String,
-        @Query("key") key: String,
-    ): Call<DirectionResponse>
 }

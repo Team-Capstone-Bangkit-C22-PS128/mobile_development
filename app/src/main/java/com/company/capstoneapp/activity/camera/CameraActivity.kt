@@ -1,9 +1,11 @@
 package com.company.capstoneapp.activity.camera
 
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.WindowInsets
 import android.view.WindowManager
 import android.widget.Toast
@@ -14,10 +16,13 @@ import androidx.camera.core.ImageCaptureException
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.content.ContextCompat
-import com.company.capstoneapp.*
-import com.company.capstoneapp.databinding.ActivityCameraBinding
+import com.company.capstoneapp.ApiConfig
 import com.company.capstoneapp.activity.home.HomeActivity
+import com.company.capstoneapp.createFile
+import com.company.capstoneapp.databinding.ActivityCameraBinding
 import com.company.capstoneapp.dataclass.DetectionResponse
+import com.company.capstoneapp.reduceFileImage
+import com.company.capstoneapp.showLoading
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -30,15 +35,19 @@ import java.io.File
 class CameraActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCameraBinding
+    private lateinit var getFile: File
+    private lateinit var userData: SharedPreferences
+
     private var imageCapture: ImageCapture? = null
     private var cameraSelector: CameraSelector = CameraSelector.DEFAULT_BACK_CAMERA
-    private lateinit var getFile: File
     private val startResult = Intent()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        userData = getSharedPreferences("login_session", MODE_PRIVATE)
 
         binding.apply {
             captureImage.setOnClickListener { takePhoto() }
@@ -138,7 +147,7 @@ class CameraActivity : AppCompatActivity() {
 
         Toast.makeText(
             this@CameraActivity,
-            "Tunggu ya, Kita lagi mendeteksi makanan...",
+            "Tunggu ya, Kami lagi mendeteksi makanan...",
             Toast.LENGTH_LONG
         ).show()
 
@@ -150,8 +159,13 @@ class CameraActivity : AppCompatActivity() {
             requestImageFile
         )
 
+        val idTokenMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+            "id_token",
+            userData.getString("idToken", null).toString()
+        )
+
         ApiConfig.getApiService("https://capstone-project-351416.et.r.appspot.com/")
-            .uploadImage(imageMultipart)
+            .uploadImage(imageMultipart, idTokenMultipart)
             .enqueue(object : Callback<DetectionResponse> {
                 override fun onResponse(
                     call: Call<DetectionResponse>,
@@ -164,7 +178,7 @@ class CameraActivity : AppCompatActivity() {
                             Toast.makeText(
                                 this@CameraActivity,
                                 "Yey, makanan berhasil dideteksi",
-                                Toast.LENGTH_SHORT
+                                Toast.LENGTH_SHORT 
                             ).show()
                             startResult.putExtra("food", responseBody.makanan)
                             setResult(ResultCameraActivity.CAMERA_X_RESULT, startResult)

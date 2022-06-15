@@ -3,6 +3,7 @@ package com.company.capstoneapp.activity.camera
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.company.capstoneapp.*
@@ -33,9 +34,11 @@ class ResultCameraActivity : AppCompatActivity() {
 
         binding.apply {
 
-            ivBack.setOnClickListener{
-                launcherIntentCameraX.launch(Intent(this@ResultCameraActivity, CameraActivity::class.java))
-            }
+            val toolbar = toolbar
+            setSupportActionBar(toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_ios_white_24)
 
             btnScan.setOnClickListener {
                 val detailPage = Intent(this@ResultCameraActivity, DetailActivity::class.java)
@@ -67,6 +70,13 @@ class ResultCameraActivity : AppCompatActivity() {
                 binding.tvFoodName.text = it.child("name").value.toString()
             }
         }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId === android.R.id.home) {
+            finish() // close this activity and return to preview activity (if there is any)
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     companion object{

@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         userData = getSharedPreferences("login_session", MODE_PRIVATE)
-        if (userData.getString("name", null) != null) {
+        if (userData.getString("idToken", null) != null) {
             finishAffinity()
             startActivity(Intent(this, HomeActivity::class.java))
         }

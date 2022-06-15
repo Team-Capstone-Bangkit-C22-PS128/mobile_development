@@ -5,6 +5,7 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.company.capstoneapp.ApiConfig
 import com.company.capstoneapp.dataclass.DataUser
@@ -24,6 +25,7 @@ class SplashActivity : AppCompatActivity() {
 
         userData = getSharedPreferences("login_session", MODE_PRIVATE)
         val refreshToken = userData.getString("refreshToken", null).toString()
+        Log.v("GANTENG", userData.getString("refreshToken", null).toString())
 
         Handler(Looper.getMainLooper()).postDelayed({
 
@@ -47,8 +49,8 @@ class SplashActivity : AppCompatActivity() {
                                         val dataUser: DataUser = responseBody
                                         getSharedPreferences("login_session", MODE_PRIVATE)
                                             .edit()
-                                            .putString("refreshToken", dataUser.refreshToken)
-                                            .putString("idToken", dataUser.idToken)
+                                            .putString("refreshToken", dataUser.refresh_Token)
+                                            .putString("idToken", dataUser.id_Token)
                                             .apply()
                                         startActivity(Intent(this@SplashActivity, LoginActivity::class.java))
                                         finish()

@@ -77,15 +77,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         // beri penanda lokasi real terkini pengguna
         markUserLocation()
 
-        // beri penanda lokasi dummy terkini pengguna
-        val userLocationDummy = LatLng(-0.4791039926444693, 117.18969923573819)
-        mMap.addMarker(
-            MarkerOptions()
-                .position(userLocationDummy)
-                .title("Lokasi Dummy Anda")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocationDummy, 18f))
-
         // dapatkan titik-titik lokasi kuliner di sekitar
         getDataCulinary()
     }
@@ -136,12 +127,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 if (location != null) {
                     lastLocation = location
                     userLocationReal = LatLng(location.latitude, location.longitude)
-                    mMap.addMarker(
-                        MarkerOptions()
-                            .position(userLocationReal)
-                            .title("Lokasi Real Anda")
-                            .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE))
-                    )
                     mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(userLocationReal, 18f))
 
                     val dest = intent.getParcelableExtra<LatLng>("latlng")

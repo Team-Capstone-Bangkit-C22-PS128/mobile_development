@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
     <style name="style_btn_primary">
+        <item name="android:forceDarkAllowed">false</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginStart">25dp</item>
@@ -12,30 +14,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-<!--    <style name="style_btn_secondary">-->
-<!--        <item name="android:layout_width">0dp</item>-->
-<!--        <item name="android:layout_height">wrap_content</item>-->
-<!--        <item name="android:layout_marginStart">25dp</item>-->
-<!--        <item name="android:layout_marginEnd">25dp</item>-->
-<!--        <item name="android:background">@drawable/button_coral</item>-->
-<!--        <item name="backgroundTint">@null</item>-->
-<!--        <item name="android:fontFamily">sans-serif</item>-->
-<!--        <item name="android:textStyle">bold</item>-->
-<!--    </style>-->
-
     <style name="style_input_text">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:minHeight">48dp</item>
     </style>
-
-<!--    <style name="style_tv_input">-->
-<!--        <item name="android:layout_width">wrap_content</item>-->
-<!--        <item name="android:layout_height">wrap_content</item>-->
-<!--        <item name="android:layout_marginBottom">4dp</item>-->
-<!--        <item name="android:textSize">20sp</item>-->
-<!--        <item name="android:textStyle">bold</item>-->
-<!--    </style>-->
 
     <style name="heading">
         <item name="android:layout_width">wrap_content</item>
@@ -48,6 +31,21 @@
 
     <style name="roundedCornersImageView" parent="">
         <item name="cornerSize">10%</item>
+    </style>
+
+    <style name="style_toolbar">
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">@color/cream</item>
+    </style>
+
+    <style name="style_navbar">
+        <item name="android:forceDarkAllowed">false</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:background">@color/cream</item>
     </style>
 
 </resources>

@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
@@ -52,6 +53,12 @@ class ChangeProfileActivity : AppCompatActivity() {
 
         binding.apply {
 
+            val toolbar = toolbar
+            setSupportActionBar(toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_ios_white_24)
+
             Glide.with(this@ChangeProfileActivity)
                 .load(userData.getString("urlPhoto", null))
                 .into(ivAvatar)
@@ -87,10 +94,6 @@ class ChangeProfileActivity : AppCompatActivity() {
             btnEditFoto.setOnClickListener {
                 ImagePicker.with(this@ChangeProfileActivity)
                     .start()
-            }
-
-            ivBack.setOnClickListener{
-                finish()
             }
         }
     }
@@ -218,5 +221,12 @@ class ChangeProfileActivity : AppCompatActivity() {
             override fun onFailure(call: Call<DataUser>, t: Throwable) {
             }
         })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId === android.R.id.home) {
+            finish() // close this activity and return to preview activity (if there is any)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

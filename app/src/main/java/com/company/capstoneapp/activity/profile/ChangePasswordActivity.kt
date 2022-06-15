@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.company.capstoneapp.ApiConfig
@@ -28,6 +29,12 @@ class ChangePasswordActivity : AppCompatActivity() {
         userData = getSharedPreferences("login_session", MODE_PRIVATE)
 
         binding.apply {
+
+            val toolbar = toolbar
+            setSupportActionBar(toolbar)
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            supportActionBar?.setDisplayShowHomeEnabled(true)
+            supportActionBar?.setHomeAsUpIndicator(R.drawable.ic_arrow_back_ios_white_24)
 
             Glide.with(this@ChangePasswordActivity)
                 .load(userData.getString("urlPhoto", null))
@@ -64,10 +71,6 @@ class ChangePasswordActivity : AppCompatActivity() {
                 } else {
                     handleChangePassword(newPass)
                 }
-            }
-
-            ivBack.setOnClickListener{
-                finish()
             }
         }
     }
@@ -124,5 +127,12 @@ class ChangePasswordActivity : AppCompatActivity() {
                 }
 
             })
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId === android.R.id.home) {
+            finish() // close this activity and return to preview activity (if there is any)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

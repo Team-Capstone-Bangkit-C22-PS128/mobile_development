@@ -8,6 +8,7 @@ import android.location.Address
 import android.location.Geocoder
 import android.location.Location
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -66,10 +67,15 @@ class HomeActivity : AppCompatActivity() {
         ContextCompat.checkSelfPermission(baseContext, it) == PackageManager.PERMISSION_GRANTED
     }
 
+    private lateinit var userData: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        userData = getSharedPreferences("login_session", MODE_PRIVATE)
+        Log.v("GANTENG", userData.getString("idToken", null).toString())
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(

@@ -34,14 +34,13 @@
     <string name="old_password">Password Lama</string>
     <string name="verify_newpassword">Konfirmasi Password Baru</string>
     <string name="new_password">Password Baru</string>
-    <string name="profile">Profile</string>
+    <string name="profile">Profil</string>
     <string name="home">Home</string>
     <string name="scan">Pindai</string>
     <string name="tv_welcome">Welcome,\n%1$s</string>
     <string name="skip">Lewati</string>
     <string name="save_and_continue">Simpan dan Lanjutkan</string>
     <string name="title_activity_maps">MapsActivity</string>
-    <string name="profil">Profil</string>
     <string name="keluar">Keluar</string>
     <string name="favorit">Kuliner Favorit</string>
     <string name="duration">Duration: %1$s</string>
